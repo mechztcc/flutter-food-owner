@@ -12,22 +12,32 @@ class SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/woman_moto.png'),
+            CircleAvatar(
+              maxRadius: 200,
+              child: Image.asset(
+                'assets/images/woman_moto.png',
+                width: 300,
+              ),
+            ),
             const SizedBox(
               height: 20,
             ),
             LoadingAnimationWidget.fourRotatingDots(
-              color: Colors.red,
+              color: Colors.white,
               size: 40,
             ),
             const SizedBox(
               height: 20,
             ),
-            const Text('Carregando')
+            const Text(
+              'Carregando...',
+              style: TextStyle(fontSize: 30, color: Colors.white,),
+            )
           ],
         ),
       ),
