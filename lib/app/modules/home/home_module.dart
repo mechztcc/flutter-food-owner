@@ -1,3 +1,4 @@
+import 'package:flutter_food_owner/app/modules/core/pages/loading_page.dart';
 import 'package:flutter_food_owner/app/modules/home/pages/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../home/home_store.dart';
@@ -12,6 +13,6 @@ class HomeModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => SplashPage()),
+    ChildRoute(Modular.initialRoute, child: (_, args) => LoadingPage()),
   ];
 }
