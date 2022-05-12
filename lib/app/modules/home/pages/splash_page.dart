@@ -18,7 +18,7 @@ class SplashPageState extends State<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              maxRadius: 200,
+              maxRadius: 120,
               child: Image.asset(
                 'assets/images/woman_moto.png',
                 width: 300,
@@ -36,7 +36,10 @@ class SplashPageState extends State<SplashPage> {
             ),
             const Text(
               'Carregando...',
-              style: TextStyle(fontSize: 30, color: Colors.white,),
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
             )
           ],
         ),
