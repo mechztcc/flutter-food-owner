@@ -17,6 +17,17 @@ class SplashPageState extends State<SplashPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Bem-vindo ao melhor app de entregas',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             CircleAvatar(
               maxRadius: 120,
               child: Image.asset(
@@ -37,7 +48,7 @@ class SplashPageState extends State<SplashPage> {
             const Text(
               'Carregando...',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 25,
                 color: Colors.white,
               ),
             )
