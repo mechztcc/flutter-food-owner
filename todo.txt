@@ -1,0 +1,6 @@
+
+[ ] Create account
+[ ] Login with credencial
+
+[ ] Create store
+[ ] List stores
