@@ -37,7 +37,7 @@ class CreateAccountPageState extends State<CreateAccountPage> {
                       });
                     },
                     child: const Text(
-                      'Criar conta gratuita',
+                      'Já sou cadastrado',
                       style: TextStyle(fontSize: 25, color: Colors.white),
                     ),
                   )
@@ -49,7 +49,7 @@ class CreateAccountPageState extends State<CreateAccountPage> {
                       });
                     },
                     child: const Text(
-                      'Já sou cadastrado',
+                      'Criar conta gratuita',
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.white,

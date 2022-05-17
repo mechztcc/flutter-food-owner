@@ -20,18 +20,6 @@ class LoginFormWidget extends StatelessWidget {
                   children: [
                     TextFormField(
                       decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.person),
-                        labelText: 'Nome completo',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(
                         suffixIcon: const Icon(Icons.email),
                         labelText: 'E-mail',
                         border: OutlineInputBorder(
