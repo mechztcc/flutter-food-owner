@@ -7,7 +7,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class UserModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => UsersRepository(dio: i())),
+    Bind.lazySingleton((i) => UsersRepository(dio: i(), log: i())),
     Bind.lazySingleton((i) => UserStore()),
   ];
 
