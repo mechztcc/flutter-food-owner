@@ -48,7 +48,7 @@ class SplashPageState extends State<SplashPage> {
             ),
             TextButton(
               onPressed: () {
-                Modular.to.pushNamed('/users/');
+                Modular.to.pushNamed('/users/create');
               },
               child: const Text(
                 'Carregando...',

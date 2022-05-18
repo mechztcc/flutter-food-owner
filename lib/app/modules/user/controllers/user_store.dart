@@ -1,4 +1,5 @@
 import 'package:asuka/snackbars/asuka_snack_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 import 'package:flutter_food_owner/app/modules/user/repositories/users_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -19,7 +20,6 @@ abstract class _UserStoreBase with Store {
   Future<void> createAccount(String name, String email, String password) async {
     try {
       await _usersRepository.createAccount(name, email, password);
-      Modular.to.pushNamed('/');
     } catch (e) {}
   }
 

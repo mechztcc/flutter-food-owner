@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food_owner/app/modules/user/components/create_account_form_widget.dart';
 import 'package:flutter_food_owner/app/modules/user/components/login_form_widget.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class CreateAccountPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   final String title;
-  const CreateAccountPage({
-    Key? key,
-    this.title = 'CreateAccountPage',
-  }) : super(key: key);
+  const LoginPage({Key? key, this.title = 'LoginPage'}) : super(key: key);
   @override
-  CreateAccountPageState createState() => CreateAccountPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class CreateAccountPageState extends State<CreateAccountPage> {
+class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +19,20 @@ class CreateAccountPageState extends State<CreateAccountPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/boy_tablet.png', height: 300),
+              Image.asset('assets/images/two_boys.png', height: 300),
               const SizedBox(
                 height: 10,
               ),
               TextButton(
                 onPressed: () {
-                  Modular.to.pushReplacementNamed('/users/login');
+                  Modular.to.pushReplacementNamed('/users/create');
                 },
                 child: const Text(
-                  'Já sou cadastrado',
+                  'Criar conta gratuita',
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
               ),
-              const CreateAccountFormWidget()
+              const LoginFormWidget()
             ],
           ),
         ),
