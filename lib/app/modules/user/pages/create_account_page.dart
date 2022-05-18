@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food_owner/app/modules/user/components/create_account_form_widget.dart';
 import 'package:flutter_food_owner/app/modules/user/components/login_form_widget.dart';
 import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
-import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class CreateAccountPage extends StatefulWidget {
@@ -18,13 +17,6 @@ class CreateAccountPage extends StatefulWidget {
 class CreateAccountPageState extends State<CreateAccountPage> {
   bool _isLogin = false;
   bool _isCreateAccount = false;
-
-  final controller = Modular.get<UserStore>();
-
-  prepareUser(UserModel user) {
-    controller.addUser(user);
-    print(user);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,11 +58,7 @@ class CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                     ),
                   ),
-            _isLogin
-                ? const LoginFormWidget()
-                : CreateAccountFormWidget(
-                    prepareUser: prepareUser,
-                  )
+            _isLogin ? const LoginFormWidget() : CreateAccountFormWidget()
           ],
         ),
       ),
