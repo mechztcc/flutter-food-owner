@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_food_owner/app/modules/core/core_module.dart';
 import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
 import 'package:flutter_food_owner/app/modules/user/pages/create_account_page.dart';
@@ -17,7 +18,10 @@ class UserModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/create', child: (_, args) => CreateAccountPage()),
+    ChildRoute(
+      '/create',
+      child: (_, args) => CreateAccountPage(),
+    ),
     ChildRoute('/login', child: (_, args) => LoginPage()),
   ];
 }
