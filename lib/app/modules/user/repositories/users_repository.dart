@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:logger/logger.dart';
 
 class UsersRepository {
@@ -18,6 +19,7 @@ class UsersRepository {
         '$_url/users',
         data: {'name': name, 'email': email, 'password': password},
       );
+      Modular.to.pushReplacementNamed('/users/login');
     } on DioError catch (err) {
       _log.d(err.response);
       throw Exception('Email em uso!');
