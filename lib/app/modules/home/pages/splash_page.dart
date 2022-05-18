@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SplashPage extends StatefulWidget {
@@ -45,11 +46,16 @@ class SplashPageState extends State<SplashPage> {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              'Carregando...',
-              style: TextStyle(
-                fontSize: 25,
-                color: Colors.white,
+            TextButton(
+              onPressed: () {
+                Modular.to.pushNamed('/users/');
+              },
+              child: const Text(
+                'Carregando...',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.white,
+                ),
               ),
             )
           ],

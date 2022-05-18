@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 
 class CreateAccountFormWidget extends StatelessWidget {
   final String title;
-  const CreateAccountFormWidget(
-      {Key? key, this.title = "CreateAccountFormWidget"})
-      : super(key: key);
+  final Function prepareUser;
+  const CreateAccountFormWidget({
+    Key? key,
+    this.title = "CreateAccountFormWidget",
+    required this.prepareUser,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +57,14 @@ class CreateAccountFormWidget extends StatelessWidget {
               height: 10,
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                UserModel user = UserModel(
+                  email: 'flutter@email.com',
+                  name: 'Flutter APP',
+                  password: '123456',
+                );
+                prepareUser(user);
+              },
               icon: const Icon(Icons.rocket_launch_rounded),
               label: const Text(
                 'Criar conta',

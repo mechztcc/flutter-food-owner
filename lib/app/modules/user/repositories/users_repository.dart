@@ -7,11 +7,10 @@ class UsersRepository {
   final Logger _log;
   final String _url = 'http://192.168.1.5:3333';
 
-  UsersRepository({
-    required dio,
-    required log,
-  })  : _dio = dio,
-        _log = log;
+  UsersRepository(
+    this._dio,
+    this._log,
+  );
 
   Future<void> createAccount(UserModel userModel) async {
     try {

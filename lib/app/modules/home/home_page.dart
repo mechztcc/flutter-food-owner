@@ -11,24 +11,13 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Counter'),
-      ),
-      body: Center(
-        child: Observer(
-          builder: (context) => Text('${store.counter}'),
+        appBar: AppBar(
+          title: Text('Counter'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          store.increment();
-        },
-        child: Icon(Icons.add),
-      ),
-    );
+        body: Center());
   }
 }
