@@ -12,21 +12,15 @@ class UsersRepository {
     this._log,
   );
 
-  Future<void> createAccount(UserModel userModel) async {
+  Future<void> createAccount(String name, String email, String password) async {
     try {
-      var json = UserModel(
-        email: userModel.email,
-        name: userModel.name,
-        password: userModel.password,
-      ).toJson();
       await _dio.post(
         '$_url/users',
-        data: json,
+        data: {'name': name, 'email': email, 'password': password},
       );
     } on DioError catch (err) {
-      _log.d(err.error);
-    } catch (err) {
-      _log.i(err);
+      _log.d(err.response);
+      throw Exception('Email em uso!');
     }
   }
 }

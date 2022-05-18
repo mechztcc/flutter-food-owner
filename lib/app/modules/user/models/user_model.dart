@@ -1,44 +1,35 @@
 class UserModel {
-  String? _name;
-  String? _email;
-  String? _password;
-  String? _status;
+  String? name;
+  String? email;
+  String? password;
+  String? status;
 
   UserModel({String? name, String? email, String? password, String? status}) {
     if (name != null) {
-      _name = name;
+      name = name;
     }
     if (email != null) {
-      _email = email;
+      email = email;
     }
     if (password != null) {
-      _password = password;
+      password = password;
     }
     if (status != null) {
-      _status = status;
+      status = status;
     }
   }
 
-  String? get name => _name;
-  set name(String? name) => _name = name;
-  String? get email => _email;
-  set email(String? email) => _email = email;
-  String? get password => _password;
-  set password(String? password) => _password = password;
-  String? get status => _status;
-  set status(String? status) => _status = status;
-
   UserModel.fromJson(Map<String, dynamic> json) {
-    _name = json['name'];
-    _email = json['email'];
-    _password = json['password'];
+    name = json['name'];
+    email = json['email'];
+    password = json['password'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = _name;
-    data['email'] = _email;
-    data['password'] = _password;
+    data['name'] = name;
+    data['email'] = email;
+    data['password'] = password;
     return data;
   }
 }

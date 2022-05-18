@@ -19,20 +19,18 @@ class CreateAccountFormWidget extends StatefulWidget {
 class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
   final controller = Modular.get<UserStore>();
   final _formKey = GlobalKey<FormState>();
-  final nameEC = TextEditingController();
-  final emailEC = TextEditingController();
-  final passwordEC = TextEditingController();
+  final _nameEC = TextEditingController();
+  final _emailEC = TextEditingController();
+  final _passwordEC = TextEditingController();
+
+  String name = '';
+  String password = '';
+  String email = '';
 
   _validateForm() async {
     final isValid = _formKey.currentState?.validate();
     if (isValid ?? false) {
-      UserModel user = UserModel(
-        email: emailEC.text,
-        name: nameEC.text,
-        password: passwordEC.text,
-      );
-      controller.addUser(user);
-      await controller.createAccount();
+      await controller.createAccount(name, email, password);
     }
   }
 
@@ -50,7 +48,15 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
             children: [
               TextFormField(
                 validator: Validatorless.multiple(
-                    [Validatorless.required('Nome obrigatório')]),
+                  [Validatorless.required('Nome obrigatório')],
+                ),
+                controller: _nameEC,
+                onChanged: (value) {
+                  setState(() {
+                    name = value;
+                    print(name);
+                  });
+                },
                 decoration: InputDecoration(
                   suffixIcon: const Icon(Icons.person),
                   labelText: 'Nome completo',
@@ -67,6 +73,13 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                   Validatorless.required('E-mail obrigatório'),
                   Validatorless.email('E-mail inválido'),
                 ]),
+                controller: _emailEC,
+                onChanged: (value) {
+                  setState(() {
+                    email = value;
+                    print(email);
+                  });
+                },
                 decoration: InputDecoration(
                   suffixIcon: const Icon(Icons.email),
                   labelText: 'E-mail',
@@ -82,8 +95,17 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                 validator: Validatorless.multiple([
                   Validatorless.required('Senha obrigatória'),
                   Validatorless.min(
-                      6, 'A senha deve conter ao menos 6 dígitos'),
+                    6,
+                    'A senha deve conter ao menos 6 dígitos',
+                  ),
                 ]),
+                controller: _passwordEC,
+                onChanged: (value) {
+                  setState(() {
+                    password = value;
+                    print(password);
+                  });
+                },
                 obscureText: true,
                 decoration: InputDecoration(
                   suffixIcon: const Icon(Icons.lock),
