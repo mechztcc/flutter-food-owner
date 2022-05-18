@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 class UsersRepository {
   final Dio _dio;
   final Logger _log;
-  final String _url = 'http://192.168.1.5:3333';
+  final String _url = 'http://192.168.1.2:3333';
 
   UsersRepository(
     this._dio,
@@ -24,7 +24,9 @@ class UsersRepository {
         data: json,
       );
     } on DioError catch (err) {
-      _log.i(err.error);
+      _log.d(err.error);
+    } catch (err) {
+      _log.i(err);
     }
   }
 }

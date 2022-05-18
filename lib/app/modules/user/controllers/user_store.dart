@@ -16,7 +16,9 @@ abstract class _UserStoreBase with Store {
   Future<void> createAccount() async {
     try {
       await _usersRepository.createAccount(_user!);
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
   void addUser(UserModel user) {
@@ -25,5 +27,6 @@ abstract class _UserStoreBase with Store {
       name: user.name,
       password: user.password,
     );
+    print(_user?.email ?? 'aaa');
   }
 }

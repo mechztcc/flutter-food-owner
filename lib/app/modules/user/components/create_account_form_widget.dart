@@ -23,6 +23,19 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
   final emailEC = TextEditingController();
   final passwordEC = TextEditingController();
 
+  _validateForm() async {
+    final isValid = _formKey.currentState?.validate();
+    if (isValid ?? false) {
+      UserModel user = UserModel(
+        email: emailEC.text,
+        name: nameEC.text,
+        password: passwordEC.text,
+      );
+      controller.addUser(user);
+      await controller.createAccount();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -85,11 +98,7 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
               ),
               TextButton.icon(
                 onPressed: () {
-                  UserModel user = UserModel(
-                    email: 'flutter@email.com',
-                    name: 'Flutter APP',
-                    password: '123456',
-                  );
+                  _validateForm();
                 },
                 icon: const Icon(Icons.rocket_launch_rounded),
                 label: const Text(
