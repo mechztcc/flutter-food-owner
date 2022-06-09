@@ -15,6 +15,16 @@ class LoginFormWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Column(
             children: [
+              Text(
+                'Login',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               Form(
                 child: Column(
                   children: [

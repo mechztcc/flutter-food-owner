@@ -46,6 +46,16 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
           autovalidateMode: AutovalidateMode.always,
           child: Column(
             children: [
+              Text(
+                'Novo usuário',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 validator: Validatorless.multiple(
                   [Validatorless.required('Nome obrigatório')],
