@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/core/utils/custom_snackbar.dart';
 import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
 import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -32,19 +33,10 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
     if (isValid ?? false) {
       try {
         await controller.createAccount(name, email, password);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Conta criada com sucesso!'),
-            duration: Duration(seconds: 2),
-          ),
-        );
+        CustomSnackbar(context: context, message: 'Conta criada com sucesso!')
+            .success();
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('E-mail em uso'),
-            duration: Duration(seconds: 2),
-          ),
-        );
+        CustomSnackbar(context: context, message: 'E-mail em uso').warning();
       }
     }
   }
