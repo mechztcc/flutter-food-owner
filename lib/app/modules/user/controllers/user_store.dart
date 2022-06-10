@@ -20,7 +20,9 @@ abstract class _UserStoreBase with Store {
   Future<void> createAccount(String name, String email, String password) async {
     try {
       await _usersRepository.createAccount(name, email, password);
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
   void addUser(UserModel user) {

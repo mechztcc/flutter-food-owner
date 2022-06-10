@@ -6,7 +6,7 @@ import 'package:logger/logger.dart';
 class UsersRepository {
   final Dio _dio;
   final Logger _log;
-  final String _url = 'http://192.168.1.2:3333';
+  final String _url = 'http://127.0.0.1:3333';
 
   UsersRepository(
     this._dio,
@@ -21,8 +21,10 @@ class UsersRepository {
       );
       Modular.to.pushReplacementNamed('/users/login');
     } on DioError catch (err) {
-      _log.d(err.response);
-      throw Exception('Email em uso!');
+      _log.d(err.response?.data['message']);
+      if (err.response?.data != null) {
+        throw Exception('${err.response?.data['message']}');
+      }
     }
   }
 }
