@@ -30,7 +30,16 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
   _validateForm() async {
     final isValid = _formKey.currentState?.validate();
     if (isValid ?? false) {
-      await controller.createAccount(name, email, password);
+      try {
+        await controller.createAccount(name, email, password);
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: const Text('E-mail em uso'),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
     }
   }
 

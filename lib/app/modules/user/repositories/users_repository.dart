@@ -19,7 +19,6 @@ class UsersRepository {
         '$_url/users',
         data: {'name': name, 'email': email, 'password': password},
       );
-      Modular.to.pushReplacementNamed('/users/login');
     } on DioError catch (err) {
       _log.d(err.response?.data['message']);
       if (err.response?.data != null) {

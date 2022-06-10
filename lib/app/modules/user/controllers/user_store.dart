@@ -18,11 +18,8 @@ abstract class _UserStoreBase with Store {
   _UserStoreBase(this._usersRepository);
 
   Future<void> createAccount(String name, String email, String password) async {
-    try {
-      await _usersRepository.createAccount(name, email, password);
-    } catch (e) {
-      print(e);
-    }
+    await _usersRepository.createAccount(name, email, password);
+    Modular.to.pushReplacementNamed('/users/login');
   }
 
   void addUser(UserModel user) {
