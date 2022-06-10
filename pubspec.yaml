@@ -45,6 +45,7 @@ dependencies:
   logger: ^1.1.0
   asuka: ^2.0.0+1
   validatorless: ^1.2.1
+  hive: ^2.2.2
 
 dev_dependencies:
   flutter_test:

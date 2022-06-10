@@ -1,8 +1,9 @@
-import 'package:asuka/snackbars/asuka_snack_bar.dart';
-import 'package:flutter/material.dart';
+import 'dart:developer';
+
 import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 import 'package:flutter_food_owner/app/modules/user/repositories/users_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:hive/hive.dart';
 import 'package:mobx/mobx.dart';
 
 part 'user_store.g.dart';
@@ -23,7 +24,11 @@ abstract class _UserStoreBase with Store {
   }
 
   Future<void> login(String email, String password) async {
-    await _usersRepository.login(email, password);
+    var token = await _usersRepository.login(email, password);
+
+    var box = await Hive.openBox('storage');
+    box.put('token', token);
+    Modular.to.pushReplacementNamed('/home');
   }
 
   void addUser(UserModel user) {
