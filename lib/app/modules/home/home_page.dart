@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food_owner/app/modules/home/home_store.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -15,9 +12,97 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Counter'),
+      appBar: AppBar(
+        title: const Text('Bem-vindo a loja NomeDaLoja'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  Card(
+                    child: Image.asset(
+                      'assets/images/man_notebook.png',
+                      height: 250,
+                      width: double.infinity,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Card(
+                        child: Column(children: [
+                          const Text('Vendas realizadas'),
+                          const Text(
+                            '0',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.search),
+                          )
+                        ]),
+                      ),
+                      Card(
+                        child: Column(children: [
+                          const Text('Produtos cadastrados'),
+                          const Text(
+                            '0',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.search),
+                          )
+                        ]),
+                      ),
+                      Card(
+                        child: Column(children: [
+                          const Text('Categorias cadastradas'),
+                          const Text(
+                            '0',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.search),
+                          )
+                        ]),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            BottomNavigationBar(
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                  ),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.chat_bubble,
+                  ),
+                  label: 'Chat',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.settings,
+                  ),
+                  label: 'Configurações',
+                ),
+              ],
+            )
+          ],
         ),
-        body: Center());
+      ),
+    );
   }
 }
