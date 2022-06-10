@@ -32,11 +32,17 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
     if (isValid ?? false) {
       try {
         await controller.createAccount(name, email, password);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Conta criada com sucesso!'),
+            duration: Duration(seconds: 2),
+          ),
+        );
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: const Text('E-mail em uso'),
-            duration: const Duration(seconds: 2),
+            content: Text('E-mail em uso'),
+            duration: Duration(seconds: 2),
           ),
         );
       }
