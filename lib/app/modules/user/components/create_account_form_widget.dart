@@ -33,10 +33,15 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
     if (isValid ?? false) {
       try {
         await controller.createAccount(name, email, password);
-        CustomSnackbar(context: context, message: 'Conta criada com sucesso!')
-            .success();
+        CustomSnackbar(
+          context: context,
+          message: 'Conta criada com sucesso!',
+        ).success();
       } catch (e) {
-        CustomSnackbar(context: context, message: 'E-mail em uso').warning();
+        CustomSnackbar(
+          context: context,
+          message: 'E-mail em uso',
+        ).warning();
       }
     }
   }
@@ -71,7 +76,6 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                 onChanged: (value) {
                   setState(() {
                     name = value;
-                    print(name);
                   });
                 },
                 decoration: InputDecoration(
@@ -94,7 +98,6 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                 onChanged: (value) {
                   setState(() {
                     email = value;
-                    print(email);
                   });
                 },
                 decoration: InputDecoration(
@@ -120,7 +123,6 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                 onChanged: (value) {
                   setState(() {
                     password = value;
-                    print(password);
                   });
                 },
                 obscureText: true,

@@ -31,13 +31,17 @@ class CreateAccountPageState extends State<CreateAccountPage> {
               const SizedBox(
                 height: 10,
               ),
-              TextButton(
+              TextButton.icon(
                 onPressed: () {
                   Modular.to.pushReplacementNamed('/users/login');
                 },
-                child: const Text(
+                icon: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                ),
+                label: const Text(
                   'Já sou cadastrado',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
               const CreateAccountFormWidget()

@@ -22,12 +22,15 @@ abstract class _UserStoreBase with Store {
     Modular.to.pushReplacementNamed('/users/login');
   }
 
+  Future<void> login(String email, String password) async {
+    await _usersRepository.login(email, password);
+  }
+
   void addUser(UserModel user) {
     _user = UserModel(
       email: 'user.email',
       name: user.name,
       password: user.password,
     );
-    print(_user?.email ?? 'aaa');
   }
 }

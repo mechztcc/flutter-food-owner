@@ -27,13 +27,17 @@ class LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 10,
               ),
-              TextButton(
+              TextButton.icon(
                 onPressed: () {
                   Modular.to.pushReplacementNamed('/users/create');
                 },
-                child: const Text(
+                icon: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                ),
+                label: const Text(
                   'Criar conta gratuita',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
               const LoginFormWidget()

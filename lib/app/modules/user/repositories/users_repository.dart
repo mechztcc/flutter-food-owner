@@ -26,4 +26,18 @@ class UsersRepository {
       }
     }
   }
+
+  Future<void> login(String email, String password) async {
+    try {
+      var response = await _dio.post(
+        '$_url/auth',
+        data: {'email': email, 'password': password},
+      );
+      print(response.data);
+      return response.data;
+    } on DioError catch (err) {
+      _log.d(err.response);
+      throw Exception('${err.response?.data}');
+    }
+  }
 }
