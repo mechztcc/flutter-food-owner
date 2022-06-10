@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/home/components/card_button_widget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -34,45 +35,7 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Card(
-                        child: Column(children: [
-                          const Text('Vendas realizadas'),
-                          const Text(
-                            '0',
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.search),
-                          )
-                        ]),
-                      ),
-                      Card(
-                        child: Column(children: [
-                          const Text('Produtos cadastrados'),
-                          const Text(
-                            '0',
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.search),
-                          )
-                        ]),
-                      ),
-                      Card(
-                        child: Column(children: [
-                          const Text('Categorias cadastradas'),
-                          const Text(
-                            '0',
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.search),
-                          )
-                        ]),
-                      ),
+                      CardButtonWidget(),
                     ],
                   ),
                 ],
