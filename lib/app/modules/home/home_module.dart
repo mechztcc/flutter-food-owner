@@ -1,5 +1,5 @@
 import 'package:flutter_food_owner/app/app_module.dart';
-import 'package:flutter_food_owner/app/modules/home/home_page.dart';
+import 'package:flutter_food_owner/app/modules/home/pages/home_page.dart';
 import 'package:flutter_food_owner/app/modules/home/pages/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

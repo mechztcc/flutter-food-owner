@@ -32,10 +32,43 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CardButtonWidget(),
+                  Wrap(
+                    children: const [
+                      CardButtonWidget(
+                        icon: Icon(
+                          Icons.shopping_bag_outlined,
+                          color: Colors.deepOrange,
+                        ),
+                        name: 'Vendas',
+                      ),
+                      CardButtonWidget(
+                        icon: Icon(
+                          Icons.post_add_rounded,
+                          color: Colors.deepPurple,
+                        ),
+                        name: 'Produtos',
+                      ),
+                      CardButtonWidget(
+                        icon: Icon(
+                          Icons.content_paste_go,
+                          color: Colors.blue,
+                        ),
+                        name: 'Categorias',
+                      ),
+                      CardButtonWidget(
+                        icon: Icon(
+                          Icons.add_business_outlined,
+                          color: Colors.cyan,
+                        ),
+                        name: 'Loja',
+                      ),
+                      CardButtonWidget(
+                        icon: Icon(
+                          Icons.person,
+                          color: Colors.green,
+                        ),
+                        name: 'Clientes',
+                      ),
                     ],
                   ),
                 ],
