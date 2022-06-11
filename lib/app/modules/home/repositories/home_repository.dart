@@ -14,10 +14,10 @@ class HomeRepository {
 
   Future<StoreModel> getStoreDetails(String token) async {
     try {
-      var response = await _dio.post('$_url/stores/users', data: {
-        "token": token,
-      });
-      _log.d(response.data);
+      _dio.options.headers['Authorization'] = 'Bearer $token';
+      var response = await _dio.get(
+        '$_url/stores/users',
+      );
       StoreModel store = StoreModel.fromJson(response.data);
       return store;
     } on DioError catch (err) {

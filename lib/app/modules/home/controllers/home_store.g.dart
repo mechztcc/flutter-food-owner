@@ -25,6 +25,14 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
+  late final _$getDetailsAsyncAction =
+      AsyncAction('HomeStoreBase.getDetails', context: context);
+
+  @override
+  Future<void> getDetails() {
+    return _$getDetailsAsyncAction.run(() => super.getDetails());
+  }
+
   @override
   String toString() {
     return '''
