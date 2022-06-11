@@ -41,7 +41,24 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Observer(
           builder: (_) {
-            return Text(controller.name);
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  controller.name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const Icon(
+                  Icons.shopify_rounded,
+                  color: Colors.white,
+                )
+              ],
+            );
           },
         ),
       ),
