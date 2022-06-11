@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:logger/logger.dart';
 
 class UsersRepository {

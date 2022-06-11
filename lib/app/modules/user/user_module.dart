@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter_food_owner/app/modules/core/core_module.dart';
 import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
 import 'package:flutter_food_owner/app/modules/user/pages/create_account_page.dart';
 import 'package:flutter_food_owner/app/modules/user/pages/login_page.dart';

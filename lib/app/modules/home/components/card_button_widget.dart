@@ -11,22 +11,25 @@ class CardButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: Column(
-          children: [
-            icon,
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 20,
+    return GestureDetector(
+      onTap: () {},
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Column(
+            children: [
+              icon,
+              const SizedBox(
+                height: 10,
               ),
-            ),
-          ],
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
