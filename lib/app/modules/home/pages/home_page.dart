@@ -1,4 +1,6 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/home/components/badge_status.dart';
 import 'package:flutter_food_owner/app/modules/home/components/card_button_widget.dart';
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -68,7 +70,9 @@ class _HomePageState extends State<HomePage> {
             children: [
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const BadgeStatus(open: false),
                     Card(
                       child: Image.asset(
                         'assets/images/man_notebook.png',

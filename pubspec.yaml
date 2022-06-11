@@ -46,6 +46,7 @@ dependencies:
   asuka: ^2.0.0+1
   validatorless: ^1.2.1
   hive: ^2.2.2
+  badges: ^2.0.3
 
 dev_dependencies:
   flutter_test:
