@@ -55,7 +55,6 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         controller.name,
-                        style: GoogleFonts.raleway(),
                       ),
                       const SizedBox(
                         width: 20,
@@ -147,25 +146,33 @@ class _HomePageState extends State<HomePage> {
                           icon: const Icon(
                             Icons.maps_home_work_outlined,
                           ),
-                          title: const Text('Home'),
+                          title: const Text(
+                            'Home',
+                          ),
                         ),
                         SalomonBottomBarItem(
                           icon: const Icon(
                             Icons.chat_bubble_outline,
                           ),
-                          title: const Text('Chat'),
+                          title: const Text(
+                            'Chat',
+                          ),
                         ),
                         SalomonBottomBarItem(
                           icon: const Icon(
                             Icons.settings,
                           ),
-                          title: const Text('Configurações'),
+                          title: const Text(
+                            'Configurações',
+                          ),
                         ),
                         SalomonBottomBarItem(
                           icon: const Icon(
                             Icons.person_outline,
                           ),
-                          title: const Text('Perfil'),
+                          title: const Text(
+                            'Perfil',
+                          ),
                         ),
                       ],
                     )
