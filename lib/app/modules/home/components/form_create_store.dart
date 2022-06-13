@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_food_owner/app/modules/core/utils/custom_snackbar.dart';
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:validatorless/validatorless.dart';
@@ -20,7 +21,20 @@ class _FormCreateStoreState extends State<FormCreateStore> {
 
   _validateForm() async {
     var isValid = _formKey.currentState?.validate();
-    // isValid ? _controller.
+    if (isValid ?? false) {
+      try {
+        await _controller.createStore(_nameEC.text, _descriptionEC.text);
+        CustomSnackbar(
+          context: context,
+          message: 'Loja criada com sucesso!',
+        ).success();
+      } catch (e) {
+        CustomSnackbar(
+          context: context,
+          message: 'Falha ao cadastrar Loja',
+        ).warning();
+      }
+    }
   }
 
   @override
@@ -67,7 +81,9 @@ class _FormCreateStoreState extends State<FormCreateStore> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _validateForm();
+              },
               child: const Text(
                 'Criar',
                 style: TextStyle(

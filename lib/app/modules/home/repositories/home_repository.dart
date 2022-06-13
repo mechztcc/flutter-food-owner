@@ -25,4 +25,17 @@ class HomeRepository {
       throw Exception('Store not found');
     }
   }
+
+  Future<void> createStore(StoreModel store, String token) async {
+    try {
+      _dio.options.headers['Authorization'] = 'Bearer $token';
+      var response = await _dio.post('$_url/stores/users', data: {
+        'name': store.name,
+        'description': store.description,
+      });
+    } on DioError catch (err) {
+      _log.d(err.response);
+      throw Exception('User not found');
+    }
+  }
 }

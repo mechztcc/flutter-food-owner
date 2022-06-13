@@ -29,6 +29,19 @@ abstract class HomeStoreBase with Store {
     }
   }
 
+  Future<void> createStore(String name, String description) async {
+    try {
+      var box = await Hive.openBox('storage');
+      final String token = box.get('token');
+
+      StoreModel store = StoreModel(name: name, description: description);
+
+      await _homeRepository.createStore(store, token);
+    } catch (e) {
+      print(e);
+    }
+  }
+
   String get name => _store?.name ?? ' Store not found';
   String get description => _store?.description ?? ' Description not found';
 

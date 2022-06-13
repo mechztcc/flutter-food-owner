@@ -9,7 +9,11 @@ class AppModule extends Module {
   final List<Bind> binds = [];
 
   @override
-  List<Module> get imports => [CoreModule(), UserModule(), HomeModule()];
+  List<Module> get imports => [
+        CoreModule(),
+        UserModule(),
+        HomeModule(),
+      ];
 
   @override
   final List<ModularRoute> routes = [
