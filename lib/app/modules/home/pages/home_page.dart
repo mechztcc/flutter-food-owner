@@ -46,10 +46,11 @@ class _HomePageState extends State<HomePage> {
         ? const LoadingPage()
         : Scaffold(
             appBar: AppBar(
+              toolbarHeight: 80,
               title: Observer(
                 builder: (_) {
                   return Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         controller.name,
@@ -133,7 +134,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SalomonBottomBar(
-                      onTap: (i) {},
+                      onTap: (i) {
+                        if (i == 0) {
+                          Modular.to.pushNamed('/home');
+                        }
+                        if (i == 3) {
+                          controller.logout();
+                        }
+                      },
                       items: [
                         SalomonBottomBarItem(
                           activeIcon: const Icon(Icons.check),
