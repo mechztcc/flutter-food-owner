@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -10,6 +11,23 @@ class SplashPage extends StatefulWidget {
 }
 
 class SplashPageState extends State<SplashPage> {
+  final UserStore _controller = Modular.get<UserStore>();
+
+  @override
+  void initState() {
+    hasToken();
+    super.initState();
+  }
+
+  void hasToken() async {
+    bool isLogged = await _controller.isLogged();
+    if (isLogged) {
+      Modular.to.pushNamed('/home');
+    } else {
+      Modular.to.pushNamed('/users/login');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

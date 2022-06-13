@@ -39,6 +39,16 @@ abstract class _UserStoreBase with Store {
     print(store);
   }
 
+  Future<bool> isLogged() async {
+    var box = await Hive.openBox('storage');
+    final String token = box.get('token');
+    if (token.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   void addUser(UserModel user) {
     _user = UserModel(
       email: 'user.email',
