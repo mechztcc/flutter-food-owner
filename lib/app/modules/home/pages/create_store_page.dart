@@ -11,34 +11,31 @@ class CreateStorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: const Text(
-          'Nova Loja',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-          ),
-        ),
+        elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: Card(
-          child: Column(
-            children: [
-              Image.asset('assets/images/two_boys.png'),
-              Text(
-                'Criar loja gratuita',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
-                ),
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/two_boys.png',
+              height: 300,
+            ),
+            Text(
+              'Criar loja gratuita',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor,
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              const FormCreateStore(),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const FormCreateStore(),
+          ],
         ),
       ),
     );

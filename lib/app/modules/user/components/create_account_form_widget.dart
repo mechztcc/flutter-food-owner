@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food_owner/app/modules/core/utils/custom_snackbar.dart';
 import 'package:flutter_food_owner/app/modules/user/controllers/user_store.dart';
-import 'package:flutter_food_owner/app/modules/user/models/user_model.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -23,6 +22,7 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
   final _nameEC = TextEditingController();
   final _emailEC = TextEditingController();
   final _passwordEC = TextEditingController();
+  bool isAccepted = false;
 
   String name = '';
   String password = '';
@@ -50,7 +50,6 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Form(
@@ -137,6 +136,21 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
               ),
               const SizedBox(
                 height: 10,
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: isAccepted,
+                    onChanged: (v) {
+                      setState(() {
+                        isAccepted = !isAccepted;
+                      });
+                    },
+                  ),
+                  const Text(
+                    'Eu aceito os termos de privacidade e a politica de acesso ',
+                  )
+                ],
               ),
               TextButton.icon(
                 onPressed: () {

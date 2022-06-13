@@ -47,7 +47,6 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
     return Center(
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Column(
@@ -116,9 +115,22 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      'Esqueceu a senha?',
-                      style: TextStyle(),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.question_mark_outlined,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        Text(
+                          'Esqueceu a senha?',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        )
+                      ],
                     ),
                     const SizedBox(
                       height: 20,
