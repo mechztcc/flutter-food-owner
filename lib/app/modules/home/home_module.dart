@@ -27,7 +27,7 @@ class HomeModule extends Module {
       child: (_, args) => const HomePage(),
     ),
     ChildRoute(
-      '/create-store',
+      '/create-store/',
       child: (_, args) => const CreateStorePage(),
     )
   ];

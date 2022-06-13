@@ -61,9 +61,10 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
               Text(
                 'Novo usuário',
                 style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
               const SizedBox(
                 height: 10,
