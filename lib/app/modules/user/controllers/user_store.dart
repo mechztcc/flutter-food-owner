@@ -31,6 +31,14 @@ abstract class _UserStoreBase with Store {
     Modular.to.pushReplacementNamed('/home');
   }
 
+  Future<void> findStoreDetails() async {
+    var box = await Hive.openBox('storage');
+    String token = box.get('token');
+
+    var store = await _usersRepository.findStoreByLoggedUser(token);
+    print(store);
+  }
+
   void addUser(UserModel user) {
     _user = UserModel(
       email: 'user.email',

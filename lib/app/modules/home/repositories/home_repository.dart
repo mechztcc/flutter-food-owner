@@ -21,8 +21,8 @@ class HomeRepository {
       StoreModel store = StoreModel.fromJson(response.data);
       return store;
     } on DioError catch (err) {
-      _log.d(err);
-      throw Exception('Error');
+      _log.d(err.response);
+      throw Exception('Store not found');
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_food_owner/app/modules/home/models/store_model.dart';
 import 'package:logger/logger.dart';
 
 class UsersRepository {
@@ -33,6 +34,19 @@ class UsersRepository {
       );
       var token = response.data['token'];
       return token;
+    } on DioError catch (err) {
+      _log.d(err.response);
+      throw Exception('${err.response?.data}');
+    }
+  }
+
+  Future<StoreModel> findStoreByLoggedUser(String token) async {
+    try {
+      _dio.options.headers['Authorization'] = 'Bearer $token';
+      var response = await _dio.get('stores/users');
+
+      StoreModel store = StoreModel.fromJson(response.data);
+      return store;
     } on DioError catch (err) {
       _log.d(err.response);
       throw Exception('${err.response?.data}');

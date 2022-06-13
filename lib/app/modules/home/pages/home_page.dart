@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   final controller = Modular.get<HomeStore>();
   var isLoading = false;
 
-  find() async {
+  findStoreDetails() async {
     await controller.getDetails();
   }
 
@@ -30,10 +30,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       isLoading = true;
     });
-    find();
+    findStoreDetails();
     setState(() {
       isLoading = false;
     });
+
     super.initState();
   }
 
