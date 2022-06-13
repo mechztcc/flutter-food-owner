@@ -42,6 +42,13 @@ abstract class HomeStoreBase with Store {
     }
   }
 
+  void logout() async {
+    var box = await Hive.openBox('storage');
+    box.delete('token');
+
+    Modular.to.pushReplacementNamed('/users/login');
+  }
+
   String get name => _store?.name ?? ' Store not found';
   String get description => _store?.description ?? ' Description not found';
 

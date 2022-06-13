@@ -47,7 +47,9 @@ class _HomePageState extends State<HomePage> {
             appBar: AppBar(
               actions: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    controller.logout();
+                  },
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
                     child: Icon(
@@ -88,7 +90,6 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const BadgeStatus(open: false),
                           Card(
                             child: Image.asset(
                               'assets/images/two_boys.png',
@@ -102,7 +103,6 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text(controller.description),
                           Wrap(
                             children: const [
                               CardButtonWidget(
