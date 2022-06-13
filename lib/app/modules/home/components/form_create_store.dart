@@ -28,6 +28,7 @@ class _FormCreateStoreState extends State<FormCreateStore> {
           context: context,
           message: 'Loja criada com sucesso!',
         ).success();
+        Modular.to.pushNamed('/home');
       } catch (e) {
         CustomSnackbar(
           context: context,
