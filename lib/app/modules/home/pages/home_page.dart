@@ -6,6 +6,7 @@ import 'package:flutter_food_owner/app/modules/home/components/card_button_widge
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,9 +55,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         controller.name,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: GoogleFonts.raleway(),
                       ),
                       const SizedBox(
                         width: 20,
