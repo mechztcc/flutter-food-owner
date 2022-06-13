@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/core/pages/loading_page.dart';
 import 'package:flutter_food_owner/app/modules/home/components/badge_status.dart';
 import 'package:flutter_food_owner/app/modules/home/components/card_button_widget.dart';
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
@@ -40,122 +41,136 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Observer(
-          builder: (_) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  controller.name,
-                  style: const TextStyle(
-                    color: Colors.white,
+    return isLoading
+        ? const LoadingPage()
+        : Scaffold(
+            appBar: AppBar(
+              actions: [
+                GestureDetector(
+                  onTap: () {},
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.person,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                const Icon(
-                  Icons.shopify_rounded,
-                  color: Colors.white,
                 )
               ],
-            );
-          },
-        ),
-      ),
-      body: Center(
-        child: Observer(
-          builder: (_) => Column(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+              title: Observer(
+                builder: (_) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        controller.name,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      const Icon(
+                        Icons.shopify_rounded,
+                        color: Colors.white,
+                      )
+                    ],
+                  );
+                },
+              ),
+            ),
+            body: Center(
+              child: Observer(
+                builder: (_) => Column(
                   children: [
-                    const BadgeStatus(open: false),
-                    Card(
-                      child: Image.asset(
-                        'assets/images/man_notebook.png',
-                        height: 250,
-                        width: double.infinity,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const BadgeStatus(open: false),
+                          Card(
+                            child: Image.asset(
+                              'assets/images/two_boys.png',
+                              height: 250,
+                              width: double.infinity,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(controller.description),
+                          Wrap(
+                            children: const [
+                              CardButtonWidget(
+                                icon: Icon(
+                                  Icons.shopping_bag_outlined,
+                                  color: Colors.deepOrange,
+                                ),
+                                name: 'Vendas',
+                              ),
+                              CardButtonWidget(
+                                icon: Icon(
+                                  Icons.post_add_rounded,
+                                  color: Colors.deepPurple,
+                                ),
+                                name: 'Produtos',
+                              ),
+                              CardButtonWidget(
+                                icon: Icon(
+                                  Icons.content_paste_go,
+                                  color: Colors.blue,
+                                ),
+                                name: 'Categorias',
+                              ),
+                              CardButtonWidget(
+                                icon: Icon(
+                                  Icons.add_business_outlined,
+                                  color: Colors.cyan,
+                                ),
+                                name: 'Loja',
+                              ),
+                              CardButtonWidget(
+                                icon: Icon(
+                                  Icons.person,
+                                  color: Colors.green,
+                                ),
+                                name: 'Clientes',
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(controller.description),
-                    Wrap(
-                      children: const [
-                        CardButtonWidget(
+                    BottomNavigationBar(
+                      items: const [
+                        BottomNavigationBarItem(
                           icon: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Colors.deepOrange,
+                            Icons.home,
                           ),
-                          name: 'Vendas',
+                          label: 'Home',
                         ),
-                        CardButtonWidget(
+                        BottomNavigationBarItem(
                           icon: Icon(
-                            Icons.post_add_rounded,
-                            color: Colors.deepPurple,
+                            Icons.chat_bubble,
                           ),
-                          name: 'Produtos',
+                          label: 'Chat',
                         ),
-                        CardButtonWidget(
+                        BottomNavigationBarItem(
                           icon: Icon(
-                            Icons.content_paste_go,
-                            color: Colors.blue,
+                            Icons.settings,
                           ),
-                          name: 'Categorias',
-                        ),
-                        CardButtonWidget(
-                          icon: Icon(
-                            Icons.add_business_outlined,
-                            color: Colors.cyan,
-                          ),
-                          name: 'Loja',
-                        ),
-                        CardButtonWidget(
-                          icon: Icon(
-                            Icons.person,
-                            color: Colors.green,
-                          ),
-                          name: 'Clientes',
+                          label: 'Configurações',
                         ),
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),
-              BottomNavigationBar(
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.home,
-                    ),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.chat_bubble,
-                    ),
-                    label: 'Chat',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.settings,
-                    ),
-                    label: 'Configurações',
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+            ),
+          );
   }
 }

@@ -36,13 +36,12 @@ abstract class _UserStoreBase with Store {
     String token = box.get('token');
 
     var store = await _usersRepository.findStoreByLoggedUser(token);
-    print(store);
   }
 
   Future<bool> isLogged() async {
     var box = await Hive.openBox('storage');
-    final String token = box.get('token');
-    if (token.isNotEmpty) {
+    var token = box.get('token');
+    if (token != null) {
       return true;
     } else {
       return false;
