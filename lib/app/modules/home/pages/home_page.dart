@@ -6,6 +6,7 @@ import 'package:flutter_food_owner/app/modules/home/components/card_button_widge
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -45,20 +46,6 @@ class _HomePageState extends State<HomePage> {
         ? const LoadingPage()
         : Scaffold(
             appBar: AppBar(
-              actions: [
-                GestureDetector(
-                  onTap: () {
-                    controller.logout();
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.person,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                )
-              ],
               title: Observer(
                 builder: (_) {
                   return Row(
@@ -145,25 +132,33 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    BottomNavigationBar(
-                      items: const [
-                        BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.home,
+                    SalomonBottomBar(
+                      onTap: (i) {},
+                      items: [
+                        SalomonBottomBarItem(
+                          activeIcon: const Icon(Icons.check),
+                          icon: const Icon(
+                            Icons.maps_home_work_outlined,
                           ),
-                          label: 'Home',
+                          title: const Text('Home'),
                         ),
-                        BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.chat_bubble,
+                        SalomonBottomBarItem(
+                          icon: const Icon(
+                            Icons.chat_bubble_outline,
                           ),
-                          label: 'Chat',
+                          title: const Text('Chat'),
                         ),
-                        BottomNavigationBarItem(
-                          icon: Icon(
+                        SalomonBottomBarItem(
+                          icon: const Icon(
                             Icons.settings,
                           ),
-                          label: 'Configurações',
+                          title: const Text('Configurações'),
+                        ),
+                        SalomonBottomBarItem(
+                          icon: const Icon(
+                            Icons.person_outline,
+                          ),
+                          title: const Text('Perfil'),
                         ),
                       ],
                     )
