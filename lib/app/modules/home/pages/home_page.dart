@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_owner/app/modules/core/components/BottomBar_widget.dart';
 import 'package:flutter_food_owner/app/modules/core/pages/loading_page.dart';
 import 'package:flutter_food_owner/app/modules/home/components/card_button_widget.dart';
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
@@ -129,53 +130,8 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SalomonBottomBar(
-                      onTap: (i) {
-                        if (i == 0) {
-                          Modular.to.pushNamed('/home');
-                        }
-                        if (i == 2) {
-                          Modular.to.pushNamed('configuration');
-                        }
-                        if (i == 3) {
-                          controller.logout();
-                        }
-                      },
-                      items: [
-                        SalomonBottomBarItem(
-                          activeIcon: const Icon(Icons.check),
-                          icon: const Icon(
-                            Icons.maps_home_work_outlined,
-                          ),
-                          title: const Text(
-                            'Home',
-                          ),
-                        ),
-                        SalomonBottomBarItem(
-                          icon: const Icon(
-                            Icons.chat_bubble_outline,
-                          ),
-                          title: const Text(
-                            'Chat',
-                          ),
-                        ),
-                        SalomonBottomBarItem(
-                          icon: const Icon(
-                            Icons.settings,
-                          ),
-                          title: const Text(
-                            'Configurações',
-                          ),
-                        ),
-                        SalomonBottomBarItem(
-                          icon: const Icon(
-                            Icons.person_outline,
-                          ),
-                          title: const Text(
-                            'Perfil',
-                          ),
-                        ),
-                      ],
+                    BottomBarWidget(
+                      currentIndex: 0,
                     )
                   ],
                 ),
