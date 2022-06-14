@@ -14,7 +14,7 @@ class CustomSnackbar {
       SnackBar(
         content: Text(message),
         duration: const Duration(seconds: 2),
-        backgroundColor: const Color.fromARGB(255, 22, 194, 45),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -24,7 +24,7 @@ class CustomSnackbar {
       SnackBar(
         content: Text(message),
         duration: const Duration(seconds: 2),
-        backgroundColor: const Color.fromARGB(255, 255, 122, 88),
+        backgroundColor: Colors.orange,
       ),
     );
   }
