@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
-          bodyText1: GoogleFonts.oswald(textStyle: textTheme.bodyText1),
+          bodyText1: GoogleFonts.notoSans(textStyle: textTheme.bodyText1),
         ),
       ),
       routeInformationParser: Modular.routeInformationParser,
