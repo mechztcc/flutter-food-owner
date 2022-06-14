@@ -58,10 +58,10 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         width: 20,
                       ),
-                      const Icon(
-                        Icons.shopify_rounded,
-                        color: Colors.white,
-                      )
+                      // const Icon(
+                      //   Icons.shopify_rounded,
+                      //   color: Colors.white,
+                      // )
                     ],
                   );
                 },

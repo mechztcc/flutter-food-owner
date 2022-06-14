@@ -12,10 +12,12 @@ class ConfigurationPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 80,
         automaticallyImplyLeading: false,
+        title: const Text('Configurações'),
       ),
       body: Center(
         child: Column(
           children: [
+            Expanded(child: Column()),
             BottomBarWidget(
               currentIndex: 2,
             ),

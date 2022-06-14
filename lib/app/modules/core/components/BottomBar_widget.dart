@@ -34,9 +34,12 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
           setState(() {
             widget.currentIndex = i;
           });
-          Modular.to.pushNamed('/configuration');
+          Modular.to.pushNamed('/configuration/');
         }
         if (i == 3) {
+          setState(() {
+            widget.currentIndex = 0;
+          });
           _controller.logout();
         }
       },
