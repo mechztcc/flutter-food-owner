@@ -134,6 +134,9 @@ class _HomePageState extends State<HomePage> {
                         if (i == 0) {
                           Modular.to.pushNamed('/home');
                         }
+                        if (i == 2) {
+                          Modular.to.pushNamed('configuration');
+                        }
                         if (i == 3) {
                           controller.logout();
                         }
