@@ -110,6 +110,7 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.blue,
                                 ),
                                 name: 'Categorias',
+                                route: '/categories',
                               ),
                               CardButtonWidget(
                                 icon: Icon(
