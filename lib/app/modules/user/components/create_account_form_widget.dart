@@ -152,9 +152,12 @@ class _CreateAccountFormWidgetState extends State<CreateAccountFormWidget> {
                   )
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
               TextButton.icon(
                 onPressed: () {
-                  _validateForm();
+                  isAccepted ? _validateForm() : null;
                 },
                 icon: const Icon(Icons.rocket_launch_rounded),
                 label: const Text(

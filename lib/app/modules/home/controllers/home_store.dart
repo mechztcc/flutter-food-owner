@@ -49,8 +49,8 @@ abstract class HomeStoreBase with Store {
     Modular.to.pushReplacementNamed('/users/login');
   }
 
-  String get name => _store?.name ?? ' Store not found';
-  String get description => _store?.description ?? ' Description not found';
+  String get name => _store?.name ?? 'Carregando...';
+  String get description => _store?.description ?? 'Carregando';
 
   bool get store {
     if (_store?.id != null) {

@@ -94,7 +94,7 @@ class _FormCreateStoreState extends State<FormCreateStore> {
                 height: 20,
               ),
               SizedBox(
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {

@@ -1,12 +1,9 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food_owner/app/modules/core/pages/loading_page.dart';
-import 'package:flutter_food_owner/app/modules/home/components/badge_status.dart';
 import 'package:flutter_food_owner/app/modules/home/components/card_button_widget.dart';
 import 'package:flutter_food_owner/app/modules/home/controllers/home_store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -48,6 +45,7 @@ class _HomePageState extends State<HomePage> {
         : Scaffold(
             appBar: AppBar(
               toolbarHeight: 80,
+              automaticallyImplyLeading: false,
               title: Observer(
                 builder: (_) {
                   return Row(
