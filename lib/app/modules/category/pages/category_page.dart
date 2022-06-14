@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class CategoryPage extends StatefulWidget {
   final String title;
-  const CategoryPage({Key? key, this.title = 'CategoryPage'}) : super(key: key);
+  const CategoryPage({
+    Key? key,
+    this.title = 'Categorias',
+  }) : super(key: key);
   @override
   CategoryPageState createState() => CategoryPageState();
 }
@@ -17,6 +20,7 @@ class CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        toolbarHeight: 80,
       ),
       body: Column(
         children: <Widget>[],
